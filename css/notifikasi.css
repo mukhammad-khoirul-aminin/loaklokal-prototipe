@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: #f0f4f7;
+        color: #333;
+        min-height: 100vh;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Header */
+    header {
+    background-color: #176B87;
+    padding: 15px 50px;
+    color: #333;
+    position: sticky;
+    height: 130px;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+    width: 100%;
+    }
+
+    .container-header{
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+    }
+
+    .header-left {
+        display: flex;
+        gap: 15px;
+    }
+
+    .header-left h1 {
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: white;
+        margin-top: 15px;
+    }
+
+    .header-right{
+        display: flex;
+        gap: 15px;
+    }
+
+    .radius-location{
+        background: none;
+        border: none;
+        color: white;
+    }
+
+    .bellicon{
+        color: white;
+        font-size: 25px;
+        margin-top: 15px;
+    }
+
+    /* =========================
+    KONTEN UTAMA
+    ========================= */
+
+    .header-center {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 30px;
+    position: relative;
+    }
+
+    .header-center input {
+        width: 100%;
+        padding: 10px 20px;
+        padding-left: 40px;
+        border: 1px solid #dcdde1;
+        border-radius: 25px;
+        font-size: 14px;
+        outline: none;
+        background-color: #f5f7fa;
+        transition: border 0.3s;
+    }
+
+    .header-center input:focus {
+        border-color: #5c98a2;
+        background-color: #ffffff;
+    }
+
+    .header-center .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 14px;
+    }
+
+    .button-upload a {
+        position: fixed;
+
+        /* Posisi tombol */
+        bottom: 75px;
+        right: max(20px, calc((100vw - 450px) / 2 + 20px));
+
+        /* Tampilan tombol */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        padding: 12px 20px;
+        background-color: #176B87;
+        color: #ffffff;
+
+        border: none;
+        border-radius: 30px;
+
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+
+        transition: background-color 0.3s ease;
+    }
+
+    .iconplus{
+        background-color: white;
+        color: #176B87;
+        border-radius: 100%;
+        font-size: 25px;
+    }
+
+    .container-image{
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-image2{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Navigasi */
+    footer{
+        background-color: #176B87;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        background-color: #176B87;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .nav-links a {
+        font-weight: 600;
+        color: white;
+        font-size: 1rem;
+        transition: color 0.3s;
+        padding-bottom: 5px;
+    }
+
+    .nav-links a.active {
+        .iconglass::before{
+            background-color: white;
+            border-radius: 100%;
+            font-size: 2.5rem;
+            padding: 10px;
+        }
+    }
+
+    .nav-links a.active {
+        border-bottom: 2px solid #5c98a2;
+        color: #2c3e50;
+    }
+
+    .nav-links a i {
+        font-size: 30px;
+    }
+
+    /* ==============================
+    POPUP PENGATURAN RADIUS
+    ================================ */
+
+    /* Latar belakang popup */
+    .radius-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding: 115px 16px 20px;
+        background: transparent;
+    }
+
+    /* Sembunyikan popup ketika atribut hidden aktif */
+    .radius-overlay[hidden] {
+        display: none;
+    }
+
+    /* Kotak popup */
+    .radius-popup {
+        width: 100%;
+        max-width: 330px;
+        padding: 18px 16px 12px;
+
+        background-color: #ffffff;
+        border-radius: 18px;
+
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.22);
+
+        color: #111111;
+        animation: radiusPopupIn 0.2s ease-out;
+    }
+
+    /* Judul popup */
+    .radius-popup h2 {
+        margin: 0 0 8px;
+        text-align: center;
+
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Informasi lokasi */
+    .radius-current-location {
+        margin-bottom: 10px;
+
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* Daftar pilihan radius */
+    .radius-options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Setiap pilihan radius */
+    .radius-option {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        cursor: pointer;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    /* Radio button */
+    .radius-option input[type="radio"] {
+        width: 13px;
+        height: 13px;
+        flex-shrink: 0;
+        margin: 0;
+
+        accent-color: #176B87;
+        cursor: pointer;
+    }
+
+    /* Tombol simpan */
+    .radius-save-btn {
+        display: block;
+        width: 100%;
+
+        margin-top: 12px;
+        padding: 9px 8px;
+
+        border: none;
+        border-radius: 7px;
+
+        background-color: #176B87;
+        color: #ffffff;
+
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 500;
+
+        cursor: pointer;
+    }
+
+    .radius-save-btn:hover {
+        background-color: #12566d;
+    }
+
+    /* Animasi popup */
+    @keyframes radiusPopupIn {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Tampilan di layar kecil */
+    @media (max-width: 360px) {
+        .radius-overlay {
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+
+        .radius-popup {
+            padding-right: 13px;
+            padding-left: 13px;
+        }
+
+        .radius-option {
+            font-size: 12px;
+        }
+    }
+
+    
+    /* =====================================
+        SEARCH DAN POPUP FILTER
+    ===================================== */
+
+    .header-center {
+        position: relative;
+        width: calc(100% - 40px);
+        max-width: 400px;
+        margin: 20px auto 0;
+        flex: none;
+        z-index: 150;
+    }
+
+    /* Kolom pencarian */
+    .header-center input {
+        display: block;
+        width: 100%;
+        height: 42px;
+        padding: 10px 14px 10px 42px;
+
+        border: 1px solid #d4d9df;
+        border-radius: 25px;
+        outline: none;
+
+        background: #ffffff;
+        color: #333333;
+        font-size: 13px;
+
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .header-center input:focus {
+        border-color: #176B87;
+        box-shadow: 0 0 0 2px rgba(23, 107, 135, 0.10);
+    }
+
+    /* Ikon search */
+    .header-center .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 13px;
+        z-index: 1;
+
+        transform: translateY(-50%);
+        color: #555555;
+        font-size: 18px;
+        pointer-events: none;
+    }
+
+    /* Kotak popup */
+    .search-filter-popup {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 5px;
+
+        width: min(280px, calc(100vw - 56px));
+        padding: 9px 12px 12px;
+
+        background-color: #ffffff;
+        border: 3px solid #168cff;
+        border-radius: 20px;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+        z-index: 300;
+        animation: filterPopupIn 0.18s ease-out;
+    }
+
+    /* Pastikan atribut hidden selalu menyembunyikan popup */
+    .search-filter-popup[hidden] {
+        display: none;
+    }
+
+    /* Judul */
+    .filter-title {
+        margin: 0 0 8px;
+        text-align: center;
+
+        color: #111111;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    /* Dua kolom filter */
+    .filter-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8px;
+    }
+
+    /* Kelompok pilihan */
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        min-width: 0;
+    }
+
+    /* Setiap pilihan */
+    .filter-option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        min-width: 0;
+        color: #222222;
+        font-size: 12px;
+        line-height: 1.4;
+
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    /* Radio button */
+    .filter-option input[type="radio"] {
+        width: 11px;
+        height: 11px;
+        flex-shrink: 0;
+
+        margin: 0;
+        accent-color: #111111;
+        cursor: pointer;
+    }
+
+    /* Tombol Cari di popup filter */
+    .filter-actions {
+        margin-top: 12px;
+    }
+
+    .cari-filter-btn {
+        width: 100%;
+        padding: 9px 12px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        border: none;
+        border-radius: 8px;
+
+        background-color: #176B87;
+        color: white;
+
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .cari-filter-btn:hover {
+        background-color: #12566d;
+    }
+
+    /* Animasi */
+    @keyframes filterPopupIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsif untuk HP kecil */
+    @media (max-width: 360px) {
+        .search-filter-popup {
+            left: 4px;
+            width: min(280px, calc(100vw - 56px));
+            padding: 9px 10px 12px;
+        }
+
+        .filter-columns {
+            column-gap: 5px;
+        }
+
+        .filter-option {
+            gap: 4px;
+            font-size: 11px;
+        }
+    }
