@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan - LoakLokal</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="css/pesan.css">
+  <link rel="stylesheet" href="css/mobile.css">
+
+  <!-- Link Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+</head>
+<body>
+  <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img src="assets/images/LOGO.png" width="50px" />
+                <h1>LOAKLOKAL</h1>
+            </div>
+
+            <div class="header-right">
+                <i class="fa-solid fa-bell bellicon"></i>
+            </div>
+        </div>
+  </header>
+
+  <!-- Konten Utama: Daftar Pesan Masuk -->
+  <main>
+    <section class="chat-card">
+      
+      <div class="chat-header">
+        <h1>Daftar Percakapan</h1>
+        <input type="text" class="search-chat" placeholder="Cari pesan atau nama...">
+      </div>
+
+      <div class="chat-list">
+        
+        <!-- Pesan 1 (Dari file referensi: Alif) -->
+        <!-- Jika diklik akan mengarah ke chat-detail.html -->
+        <a href="chat-detail.html" class="chat-item">
+          <div class="chat-avatar">A</div>
+          <div class="chat-info">
+            <div class="chat-name">Alif (Pemilik Barang)</div>
+            <div class="chat-preview">Halo kak, barang masih ada? Bisakah COD di pos satpam UNP</div>
+          </div>
+          <div class="chat-meta">
+            <div class="chat-time">16:35</div>
+            <div class="unread-badge">1</div>
+          </div>
+        </a>
+
+        <!-- Pesan 2 (Contoh dummy tambahan agar UI terlihat hidup) -->
+        <a href="#" class="chat-item">
+          <div class="chat-avatar">R</div>
+          <div class="chat-info">
+            <div class="chat-name">Rina (Pembeli)</div>
+            <div class="chat-preview"><strong>Anda:</strong> Oke, nanti saya siapkan tiket COD-nya ya.</div>
+          </div>
+          <div class="chat-meta">
+            <div class="chat-time">Kemarin</div>
+          </div>
+        </a>
+
+        <!-- Pesan 3 (Contoh dummy tambahan) -->
+        <a href="#" class="chat-item">
+          <div class="chat-avatar">D</div>
+          <div class="chat-info">
+            <div class="chat-name">Dimas (Pemilik Barang)</div>
+            <div class="chat-preview">Terima kasih banyak kak barangnya sudah sampai.</div>
+          </div>
+          <div class="chat-meta">
+            <div class="chat-time">22 Okt</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+        <!-- Navigasi Kanan (Beranda, Pencarian, Pesan) -->
+        <nav class="nav-links">
+            <a href="beranda.html"
+            ><i class="fa-solid fa-house iconhouse"></i
+            ></a>
+            <a href="notifikasi.html"
+            ><i class="fa-solid fa-magnifying-glass iconglass"></i
+            ></a>
+            <a href="pesan.html" class="active"><i class="fa-solid fa-envelope iconenvelope"></i></a>
+        </nav>
+  </footer>
+</body>
+</html>

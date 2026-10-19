@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verifikasi KTP</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <style>
+        /* =========================
+        RESET DAN PENGATURAN DASAR
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #9bb8cc, #245775);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* =========================
+        CONTAINER UTAMA
+        ========================= */
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* =========================
+        HEADER
+        ========================= */
+        .header-top {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+        .back-btn > i {
+            color: white;
+            text-decoration: none;
+            font-size: 40px;
+            margin-right: 15px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .wrap-verifikasi{
+            width: 100%;
+        }
+        .wrap-verifikasi > h1 {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .line{
+            padding: 1px;
+            width: 100%;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        /* =========================
+        AREA UPLOAD KTP
+        ========================= */
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 16px;
+        }
+
+        .upload-box {
+            width: 80%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eef4ff;
+            color: #454545;
+            overflow: hidden;
+        }
+
+        .upload-box svg {
+            width: 55px;
+            height: 55px;
+        }
+
+        .upload-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #ktp-input {
+            display: none;
+        }
+
+        .upload-button {
+            margin-top: 13px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            background: #08728a;
+            color: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .upload-button:hover {
+            background: #075c70;
+        }
+
+        /* =========================
+        CONTOH FOTO KTP
+        ========================= */
+        .examples {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+        .example-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .example-image {
+            position: relative;
+            flex-shrink: 0;
+            width: 130px;
+            height: 90px;
+            padding: 7px;
+
+            background: #eef4ff;
+        }
+
+        .example-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+
+            object-fit: cover;
+        }
+
+        .status-icon {
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+            color: #ffffff;
+
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .correct {
+            background: #13b86b;
+        }
+
+        .incorrect {
+            background: #ff4937;
+        }
+
+        .example-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.4;
+            color: white;
+        }
+
+        /* =========================
+        TOMBOL SIMPAN
+        ========================= */
+        .save-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .save-button {
+            width: 100px;
+            height: 35px;
+            border: none;
+            border-radius: 6px;
+            background: #eef4ff;
+            color: #333333;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: black 2px 2px 2px 2px;
+        }
+
+        .save-button:hover {
+            background: #d9e7fa;
+        }
+    </style>
+    <link rel="stylesheet" href="mobile.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header-top">
+            <a href="login.html" class="back-btn"><i class="fa-solid fa-circle-arrow-left"></i></a>
+            <div class="wrap-verifikasi">
+                <h1>VERIFIKASI KTP</h1>
+            </div>
+        </div>
+        <div class="line"></div>
+
+        <!-- UPLOAD KTP -->
+        <section class="upload-section">
+            <div class="upload-box" id="preview-container">
+                <!-- Ikon gambar -->
+                <svg
+                    id="upload-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    role="img"
+                    aria-label="Ikon gambar"
+                >
+                    <path d="M21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Zm-2 0H5v10l4-4 3 3 2-2 5 5V5Zm-3 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
+                </svg>
+            </div>
+
+            <input
+                type="file"
+                id="ktp-input"
+                accept="image/*"
+            >
+
+            <button
+                type="button"
+                class="upload-button"
+                onclick="document.getElementById('ktp-input').click()"
+            >
+                Upload KTP
+            </button>
+
+        </section>
+
+        <!-- CONTOH FOTO -->
+        <section class="examples">
+            <!-- FOTO KTP BENAR -->
+            <div class="example-item">
+                <div class="example-image">
+                    <img
+                        src="assets/images/ktpbenar.png"
+                        alt="Contoh foto KTP yang benar"
+                    >
+
+                    <span class="status-icon correct">
+                        &#10003;
+                    </span>
+                </div>
+
+                <p class="example-text">
+                    Foto KTP yang benar
+                </p>
+
+            </div>
+
+            <!-- FOTO KTP SALAH -->
+            <div class="example-item">
+
+                <div class="example-image">
+                    <img
+                        src="assets/images/ktpsalah.png"
+                        alt="Contoh foto KTP yang salah"
+                    >
+
+                    <span class="status-icon incorrect">
+                        &#10005;
+                    </span>
+                </div>
+
+                <p class="example-text">
+                    Foto KTP yang salah
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- TOMBOL SIMPAN -->
+        <section class="save-section">
+
+            <button type="button" class="save-button">
+                Simpan
+            </button>
+
+        </section>
+
+    </div>
+
+    <!-- PREVIEW FOTO YANG DIPILIH -->
+    <script>
+        const ktpInput = document.getElementById('ktp-input');
+        const previewContainer = document.getElementById('preview-container');
+        const uploadIcon = document.getElementById('upload-icon');
+
+        ktpInput.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            if (!file.type.startsWith('image/')) {
+                alert('Silakan pilih file gambar.');
+                this.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                let previewImage = previewContainer.querySelector('img');
+
+                if (!previewImage) {
+                    previewImage = document.createElement('img');
+                    previewImage.alt = 'Preview foto KTP';
+                    previewContainer.appendChild(previewImage);
+                }
+
+                previewImage.src = event.target.result;
+                uploadIcon.style.display = 'none';
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+
+</body>
+</html>

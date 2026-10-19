@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat dengan Putri (Pembeli) - LoakLokal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header Desktop */
+    header {
+      background-color: #ffffff;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .back-btn {
+      color: #5c98a2;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    .back-btn:hover { color: #1b6979; }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-circle {
+      width: 35px;
+      height: 35px;
+      background: #5c98a2;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+    }
+    .logo-container h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: #7f8c8d;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #5c98a2;
+    }
+    .nav-links a.active {
+      border-bottom: 2px solid #5c98a2;
+      color: #2c3e50;
+      padding-bottom: 5px;
+    }
+
+    /* Main Desktop Window Chat */
+    main {
+      flex-grow: 1;
+      padding: 30px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .chat-window {
+      background: #ffffff;
+      width: 100%;
+      max-width: 1000px;
+      height: 80vh;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Chat Window Header */
+    .chat-header {
+      background: #fdfdfd;
+      border-bottom: 1px solid #eaeaea;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .buyer-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .avatar {
+      width: 45px;
+      height: 45px;
+      background: #5c98a2;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .buyer-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    .buyer-status {
+      font-size: 0.8rem;
+      color: #27ae60;
+      font-weight: 500;
+    }
+
+    /* Chat Body Scrollable */
+    .chat-body {
+      flex-grow: 1;
+      background-color: #f7f9fa;
+      padding: 30px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Product Banner Horizontal */
+    .product-banner {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      align-self: center;
+      width: 75%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+    }
+    .product-image {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #eee;
+    }
+    .product-info h3 {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .product-info p {
+      font-size: 0.95rem;
+      color: #e65100;
+      font-weight: 600;
+    }
+
+    /* Chat Bubbles */
+    .msg-row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .msg-row.left { align-items: flex-start; }
+    .msg-row.right { align-items: flex-end; }
+
+    .message-bubble {
+      max-width: 60%;
+      padding: 12px 18px;
+      border-radius: 15px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .msg-row.left .message-bubble {
+      background-color: #ffffff;
+      color: #333;
+      border: 1px solid #e0e0e0;
+      border-bottom-left-radius: 4px;
+    }
+    .msg-row.right .message-bubble {
+      background-color: #5c98a2;
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+    .msg-time {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* COD Approval Card inside Chat */
+    .cod-card {
+      background: white;
+      border: 2px dashed #5c98a2;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 380px;
+      align-self: flex-start;
+      box-shadow: 0 4px 15px rgba(92, 152, 162, 0.1);
+    }
+    .cod-card h4 {
+      color: #1b6979;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+    .cod-card p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #555;
+    }
+    .cod-qr {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .btn-approve-container {
+      margin-top: 15px;
+    }
+    .btn-approve {
+      background-color: #1b6979;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn-approve:hover { background-color: #134e5a; }
+
+    /* Chat Footer / Input */
+    .chat-footer {
+      background: #ffffff;
+      padding: 15px 30px;
+      border-top: 1px solid #eaeaea;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .chat-input {
+      flex-grow: 1;
+      padding: 12px 20px;
+      border: 1px solid #dcdde1;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      outline: none;
+      background-color: #f9fbfc;
+      transition: border 0.3s;
+    }
+    .chat-input:focus { border-color: #5c98a2; background: #fff; }
+    .btn-send {
+      background: #5c98a2;
+      border: none;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-send:hover { background: #1b6979; transform: scale(1.05); }
+  </style>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+  <!-- Header Desktop -->
+  <header>
+    <div class="header-left">
+      <a href="pesan.html" class="back-btn">&larr; Kembali</a>
+      <div class="logo-container">
+        <div class="logo-circle">LOGO</div>
+        <h1>LOAKLOKAL</h1>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="beranda.html">Beranda</a>
+      <a href="chat-detail-penjual.html">notifikasi</a>
+      <a href="pesan.html" class="active">Pesan</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="chat-window">
+      
+      <!-- Profil Pembeli di Header Chat -->
+      <div class="chat-header">
+        <div class="buyer-profile">
+          <div class="avatar">P</div>
+          <div>
+            <div class="buyer-name">Putri (Pembeli)</div>
+            <div class="buyer-status">● Aktif</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Isi Ruang Chat -->
+      <div class="chat-body">
+        
+        <!-- Informasi Produk Terkait -->
+        <div class="product-banner">
+          <img src="./assets/images/kipas-maspion.webp" alt="Kipas Angin Maspion" class="product-image" onerror="this.style.display='none'">
+          <div class="product-info">
+            <h3>Kipas Angin Maspion Bekas</h3>
+            <p>Rp. 30.000 <span style="font-size: 0.85rem; color: #777; font-weight: normal;">(1,2 km)</span></p>
+          </div>
+        </div>
+
+        <!-- Pesan dari Pembeli -->
+        <div class="msg-row left">
+          <div class="message-bubble">
+            Halo kak, barang masih ada? Bisakah COD di pos satpam UNP
+          </div>
+          <div class="msg-time">16:25</div>
+        </div>
+
+        <!-- Pesan Balasan Penjual -->
+        <div class="msg-row right">
+          <div class="message-bubble">
+            Ada Kak. Jam 16.30 bisa ketemuan di sana
+          </div>
+          <div class="msg-time">16:28</div>
+        </div>
+
+        <!-- Kartu Pengajuan / Persetujuan Tiket COD dari Pembeli -->
+        <div class="cod-card">
+          <h4>🎟️ PENGAJUAN TIKET COD #LKL-89234</h4>
+          <p><strong>Spot:</strong> Pos Satpam Kampus</p>
+          <p><strong>Waktu:</strong> Hari Ini 16.30</p>
+          <p><strong>Status:</strong> Menunggu Konfirmasi Penjual</p>
+          <div>
+            <img src="./assets/images/qr-code-tiket.webp" alt="QR Code Tiket" class="cod-qr">
+          </div>
+          <div class="btn-approve-container">
+            <!-- Tombol ini langsung mengarah ke halaman persetujuan-cod.html -->
+            <a href="persetujuan-cod.html" class="btn-approve">Proses / Setujui Pengajuan COD</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Input Pesan -->
+      <div class="chat-footer">
+        <input type="text" class="chat-input" placeholder="Ketik balasan pesan..." required>
+        <button type="submit" class="btn-send">➤</button>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
