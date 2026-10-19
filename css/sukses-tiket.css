@@ -1,0 +1,213 @@
+/* Reset & Base Desktop Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    background-color: #176B87;
+    color: white;
+    padding: 20px 50px;
+    width: 100%;
+    height: 130px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wrap-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-top: 25px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mainwrap-header{
+    position: absolute;
+    bottom: 20px;
+    width: 94%;
+}
+
+.wrap-header{
+    display: flex;
+    gap: 20px;
+}
+
+.logoweb-detailbarang{
+    width: 70px;
+}
+
+.iconarrowleft::before{
+    background-color: white;
+    color: #176B87;
+    border-radius: 100%;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Main Container Desktop */
+main {
+    flex-grow: 1;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.desktop-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 50px;
+    text-align: center;
+}
+
+/* Success Message */
+.icon-success {
+    width: 80px;
+    height: 80px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    color: white;
+    font-size: 2.5rem;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+.desktop-card h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Horizontal Ticket Design (Desktop) */
+.ticket-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd;
+    border: 2px dashed #bdc3c7;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.ticket-info h3 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ticket-info p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.ticket-info strong {
+    color: #2c3e50;
+}
+
+.qr-section {
+    text-align: center;
+    border-left: 2px dashed #eee;
+    padding-left: 40px;
+}
+
+.qr-section h4 {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.qr-section img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 8px;
+    background: white;
+}
+
+/* Action Buttons Desktop */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 200px;
+}
+
+.btn-primary {
+    background-color: #5a8b9e;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3f687a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(63, 104, 122, 0.2);
+}
+
+.btn-secondary {
+    background-color: #ecf0f1;
+    color: #34495e;
+}
+
+.btn-secondary:hover {
+    background-color: #d0d6d9;
+    transform: translateY(-2px);
+}
