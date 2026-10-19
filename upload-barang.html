@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Barang - LoakLokal</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="css/upload-barang.css">
+  <link rel="stylesheet" href="css/mobile.css">
+
+  <!-- Link Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+</head>
+<body>
+
+  <header>
+    <div class="mainwrap-header">
+      <div class="wrap-header">
+        <a href="beranda.html"><i class="fa-solid fa-arrow-left iconarrowleft"></i></a>
+        <h2 class="title-uploadbarang">Upload Barang Luak</h2>
+      </div>
+      <div class="line"></div>
+    </div>
+  </header>
+
+  <div class="form-container">
+    
+    
+    <form id="uploadForm">
+      <!-- Input Foto -->
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-placeholder" id="uploadPlaceholder">
+          <span>📸</span>
+          <p>Klik atau Seret Foto Barang ke sini</p>
+        </div>
+        <img id="imagePreview" class="preview-img" src="" alt="Preview">
+        <input type="file" id="foto-barang" accept="image/*" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nama-barang">Nama Barang / Judul Postingan</label>
+        <input type="text" id="nama-barang" required placeholder="Contoh: Sepatu Sneakers Bekas">
+      </div>
+
+      <div class="form-group">
+        <label>Mode Transaksi</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="mode" value="Jual Murah" checked> Jual Murah</label>
+          <label class="radio-item"><input type="radio" name="mode" value="Barter/Tukar"> Barter/Tukar</label>
+          <label class="radio-item"><input type="radio" name="mode" value="Hibah Gratis"> Hibah Gratis</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="harga-barang">Harga Barang (Kosongkan jika Hibah)</label>
+        <input type="number" id="harga-barang" placeholder="Contoh: 50000">
+      </div>
+
+      <div class="form-group">
+        <label for="deskripsi-barang">Deskripsi Singkat & Kondisi</label>
+        <textarea id="deskripsi-barang" rows="4" required placeholder="Tuliskan kondisi barang, minusnya, dll..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Atur Jangkauan Radius Penjualan</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="radius" value="< 5 km" checked> < 5 km</label>
+          <label class="radio-item"><input type="radio" name="radius" value="> 5 km"> > 5 km</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lokasi-barang">Lokasi (Kecamatan/Kota)</label>
+        <input type="text" id="lokasi-barang" required placeholder="Contoh: Mojoroto, Kediri">
+      </div>
+
+      <button type="submit" class="btn-submit">Upload Barang</button>
+    </form>
+  </div>
+
+  <script src="js/upload-barang.js"></script>
+</body>
+</html>
