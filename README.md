@@ -16,3 +16,4 @@
 1. *Clone* repositori ini ke komputer lokal:
    ```bash
    git clone [https://github.com/mukhammad-khoirul-aminin/loaklokal-prototipe.git](https://github.com/mukhammad-khoirul-aminin/loaklokal-prototipe.git)
+   "docs: membuat file README.md dan melengkapi log audit AI pada proyek".   
