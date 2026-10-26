@@ -1,20 +1,26 @@
-# LoakLokal — Platform Pasar Loak & Hibah Radius Lokal
+# LoakLokal - Platform Jual Beli Barang Bekas & Donasi (Modul 8)
 
-> **Tugas Modul 7 — VINIX Batch 7**  
-> Prototipe Web Interaktif berbasis *Mobile-First Design* untuk transaksi barang loak murah, barter, dan hibah gratis di radius lokal 1–3 km area pemukiman dan sekitar kampus.
+Proyek ini adalah pengembangan antarmuka dan logika aplikasi frontend untuk platform **LoakLokal**, yang berfokus pada pengelolaan data dinamis, pencarian produk secara *real-time*, filter kategori, serta validasi form interaktif.
+
+## 👥 Tim Pengembang
+**1. Bastian Abi Manyu (Ketua)**
+**2. Mukhammad Khoirul Aminin (Anggota)** 
+**3. Yessinta Dwi Rahayu (Anggota)** 
+**4. Linda Devita Anggraini (Anggota)** 
+* Tim Kolaborasi LoakLokal
 
 ---
 
-## 📌 Tautan Utama Proyek
-* **Link Figma High-Fidelity (Modul 5):** [Design Figma LoakLokal](https://www.figma.com/design/HFKbHRybQjCeDQTLh9q1XY/Kelompok4_Web-Dev---UIUX_Tugas-Modul-5)
-* **Link Interactive Prototype Figma:** [Prototype Figma LoakLokal](https://www.figma.com/proto/HFKbHRybQjCeDQTLh9q1XY/Kelompok4_Web-Dev-and-UIUX_Tugas-Modul-5)
-* **Link Repositori GitHub:** [GitHub LoakLokal Prototipe](https://github.com/mukhammad-khoirul-aminin/loaklokal-prototipe)
+## 🚀 Fitur Utama (Modul 8)
+1. **Data Dinamis (Dynamic Data):** Menerapkan pengelolaan data produk menggunakan array JavaScript dan penyimpanan lokal (`localStorage`).
+2. **Pencarian Real-Time & Filter Kategori:** Fitur pencarian barang secara instan berdasarkan kata kunci serta penyaringan produk berdasarkan kategori.
+3. **Detail Barang Interaktif:** Menampilkan informasi detail produk lengkap dengan navigasi halaman dinamis.
+4. **Form Interaktif & Validasi:** Formulir pengajuan transaksi (seperti COD) yang dilengkapi dengan validasi input data dan penanganan kondisi kosong (*Empty States*).
+5. **Manajemen Git Branch:** Pengerjaan fitur diisolasi menggunakan branch khusus `feat/dynamic-data` untuk menjaga kebersihan dan struktur repositori tim.
 
 ---
 
-## 🛠️ Panduan Menjalankan Proyek Secara Lokal (Local Setup)
-1. *Clone* repositori ini ke komputer lokal:
-   ```bash
-   git clone [https://github.com/mukhammad-khoirul-aminin/loaklokal-prototipe.git](https://github.com/mukhammad-khoirul-aminin/loaklokal-prototipe.git)
-   "docs: membuat file README.md dan melengkapi log audit AI pada proyek".
-   docs: memperbarui README.md dengan alur demo dan informasi tim LoakLokal
+## 🛠️ Teknologi yang Digunakan
+* **HTML5 & CSS3** (Semantic Layout & Styling)
+* **JavaScript (ES6 Vanilla)** (Logika Aplikasi & Manipulasi DOM)
+* **Git & GitHub** (Version Control & Branching)
