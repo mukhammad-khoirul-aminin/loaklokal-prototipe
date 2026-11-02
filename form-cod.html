@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pengajuan COD - LoakLokal</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="css/form-cod.css">
+  <link rel="stylesheet" href="css/mobile.css">
+
+  <!-- Link Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+  />
+</head>
+<body>
+
+  <header>
+    <div class="mainwrap-header">
+      <div class="wrap-header">
+        <a href="beranda.html"><i class="fa-solid fa-arrow-left iconarrowleft"></i></a>
+        <img src="assets/images/LOGO.png" alt="logo-website" class="logoweb-detailbarang">
+        <h2 class="title-uploadbarang">Loak Lokal</h2>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="desktop-card">
+      <div class="card-header">
+        <h1>Form Pengajuan COD</h1>
+        <div class="stepper">STEPPER : [ 1. Spot* &gt; (2) Bukti ]</div>
+      </div>
+      
+      <form action="sukses-tiket.html" method="get">
+        <div class="form-grid">
+          
+          <!-- Kolom Kiri: Pilihan Lokasi & Peta -->
+          <div class="left-col">
+            <div class="form-group">
+              <label for="safe-spot">Pilih Safe Spot Terdekat</label>
+              <!-- Dropdown agar user bisa memilih lokasi -->
+              <select id="safe-spot" name="safe_spot">
+                <option value="Pos Satpam UNP" selected>Pos Satpam Kampus UNP</option>
+                <option value="Kantin Utama">Kantin Utama Kampus</option>
+                <option value="Perpustakaan Daerah">Perpustakaan Daerah</option>
+                <option value="Taman Kota">Taman Kota Kediri</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <a href="https://maps.google.com/?q=Pos+Satpam+UNP+Kediri" target="_blank" class="map-link" title="Buka di Google Maps">
+                <!-- Gunakan gambar peta asli Anda di src ini -->
+                <img src="./assets/images/map-safe-spot.webp" alt="Peta Lokasi">
+              </a>
+              <p class="map-hint">*Klik peta untuk membuka arah di Google Maps</p>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Catatan & Submit -->
+          <div class="right-col">
+            <div class="form-group">
+              <label for="catatan">Catatan Ringkas</label>
+              <textarea id="catatan" rows="5" name="catatan" placeholder="Tuliskan catatan tambahan di sini...">Ketemuan jam 16.30 ya..</textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="cek-fisik" checked>
+              <label for="cek-fisik">Saya bersedia untuk melakukan cek fisik barang</label>
+            </div>
+
+            <!-- Tombol Kirim Form COD mengarah ke halaman Sukses -->
+            <a href="sukses-tiket.html">
+              <button type="button" class="btn-submit">Kirim Pengajuan COD</button>
+            </a>
+          </div>
+
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

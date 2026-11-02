@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Persetujuan Tiket COD - LoakLokal</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="css/persetujuan-cod.css">
+  <link rel="stylesheet" href="mobile.css">
+
+  <!-- Link Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+  />
+</head>
+<body>
+
+  <!-- Header Desktop -->
+  <header>
+    <div class="header-left">
+      <a href="chat-detail-penjual.html" class="back-btn">&larr; Kembali ke Chat</a>
+      <div class="logo-container">
+        <div class="logo-circle">LOGO</div>
+        <h1>LOAKLOKAL</h1>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="beranda.html">Beranda</a>
+      <a href="beranda.html">Pencarian</a>
+      <a href="pesan.html" class="active">Pesan</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="approval-card">
+      <h2>Konfirmasi Pengajuan COD</h2>
+
+      <!-- Kartu Detail Tiket COD -->
+      <article class="ticket-box">
+        <div class="ticket-info">
+          <h3>TIKET COD #LKL-89234</h3>
+          <p><strong>Spot:</strong> Pos Satpam Kampus UNP</p>
+          <p><strong>Waktu:</strong> Hari Ini, 16.30 WIB</p>
+          <p><strong>Pembeli:</strong> Putri</p>
+        </div>
+        
+        <div class="ticket-qr">
+          <h4>QR CODE TIKET</h4>
+          <img src="./assets/images/qr-code-tiket.webp" alt="QR Code Tiket COD #LKL-89234" onerror="this.style.display='none'">
+        </div>
+      </article>
+
+      <!-- Form Aksi Persetujuan Penjual (Mengarah kembali ke chat-detail-penjual.html) -->
+      <form action="chat-detail-penjual.html" method="get" class="action-form">
+        <button type="submit" name="status" value="setuju" class="btn btn-approve">Setujui Pengajuan COD</button>
+        <button type="submit" name="status" value="tolak" class="btn btn-reject">Tolak</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

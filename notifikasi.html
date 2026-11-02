@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan - LoakLokal</title>
+
+    <!-- Link Css -->
+    <link rel="stylesheet" href="css/notifikasi.css">
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <!-- Link Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img src="assets/images/LOGO.png" width="50px" />
+                <h1>LOAKLOKAL</h1>
+            </div>
+
+            <div class="header-right">
+                <button type="button" class="radius-location" id="radiusLocationBtn" aria-haspopup="dialog" aria-expanded="false">
+                    ( Kediri, 2km )
+                </button>
+                <i class="fa-solid fa-bell bellicon"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama: Daftar Pesan Masuk -->
+    <main>
+        <!-- Search dan Popup Filter -->
+        <div class="header-center" id="searchContainer">
+
+            <span class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari barang, kategori, atau lokasi..."
+                autocomplete="off"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+            />
+
+            <!-- Popup Filter Pencarian -->
+            <div
+                class="search-filter-popup"
+                id="searchFilterPopup"
+                role="dialog"
+                aria-label="Filter pencarian"
+                hidden
+            >
+
+                <h3 class="filter-title">Kategori</h3>
+
+                <div class="filter-columns">
+                    <!-- Kolom Kiri: Kategori Barang -->
+                    <div class="filter-group">
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="kategoriFilter"
+                                value="lemari"
+                            />
+                            <span>Lemari</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="kategoriFilter"
+                                value="meja"
+                            />
+                            <span>Meja</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="kategoriFilter"
+                                value="buku"
+                            />
+                            <span>Buku</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="kategoriFilter"
+                                value="kasur"
+                            />
+                            <span>Kasur</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="kategoriFilter"
+                                value="kipas"
+                            />
+                            <span>Kipas</span>
+                        </label>
+
+                    </div>
+
+                    <!-- Kolom Kanan: Jenis dan Batas Filter -->
+                    <div class="filter-group">
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="jenisFilter"
+                                value="semua"
+                                checked
+                            />
+                            <span>Semua</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="jenisFilter"
+                                value="hibah"
+                            />
+                            <span>Hibah</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="jenisFilter"
+                                value="harga_bawah"
+                            />
+                            <span>&lt; Rp. 50.000</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="jenisFilter"
+                                value="harga_atas"
+                            />
+                            <span>&gt; Rp. 50.000</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="jenisFilter"
+                                value="radius_bawah"
+                            />
+                            <span>&lt; 5 KM</span>
+                        </label>
+
+                        <label class="filter-option">
+                            <input
+                                type="radio"
+                                name="jenisFilter"
+                                value="radius_atas"
+                            />
+                            <span>&gt; 5 KM</span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button type="button" id="cariFilterBtn" class="cari-filter-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Cari
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <button class="button-upload">
+            <a href="upload-barang.html"><i class="fa-solid fa-plus iconplus"></i>Upload</a>
+        </button>
+
+        <div class="container-image">
+            <div class="container-image2">
+                <img src="assets/images/image-notifikasi.png" alt="image-notifikasi">
+                <img src="assets/images/image-notifikasi.png" alt="image-notifikasi">
+            </div>
+        </div>
+    </main>
+
+    <!-- Popup Pengaturan Radius -->
+    <div class="radius-overlay" id="radiusOverlay" hidden>
+        <div
+            class="radius-popup"
+            id="radiusPopup"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="radiusPopupTitle"
+        >
+            <h2 id="radiusPopupTitle">Atur Jangkauan Radius</h2>
+
+            <p class="radius-current-location">
+                Lokasi: Kediri, Jawa Timur
+            </p>
+
+            <form id="radiusForm">
+                <div class="radius-options">
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="1"
+                        >
+                        <span>1 KM - Jalan kaki / Sangat Dekat</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="2"
+                            checked
+                        >
+                        <span>2 KM - Radius Optimal Kampus</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="3"
+                        >
+                        <span>3 KM - Area Sekitar Kota</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="4"
+                        >
+                        <span>4 KM - Area Sekitar</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="5"
+                        >
+                        <span>5 KM - Jangkauan Maksimal</span>
+                    </label>
+
+                </div>
+
+                <button type="submit" class="radius-save-btn">
+                    Simpan Pengaturan Radius
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Navigasi Kanan (Beranda, Pencarian, Pesan) -->
+        <nav class="nav-links">
+            <a href="beranda.html"
+            ><i class="fa-solid fa-house iconhouse"></i
+            ></a>
+            <a href="notifikasi.html" class="active"
+            ><i class="fa-solid fa-magnifying-glass iconglass"></i
+            ></a>
+            <a href="pesan.html"><i class="fa-solid fa-envelope"></i></a>
+        </nav>
+    </footer>
+
+    <script src="js/notifikasi.js"></script>
+</body>
+</html>

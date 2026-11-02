@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beranda Penjual - LoakLokal</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/beranda.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- Link Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container-header">
+        <div class="header-left">
+          <img src="assets/images/LOGO.png" width="50px" />
+          <h1>LOAKLOKAL</h1>
+        </div>
+
+        <div class="header-right">
+          <button type="button" class="radius-location" id="radiusLocationBtn" aria-haspopup="dialog" aria-expanded="false">
+            ( Kediri, 2km )
+          </button>
+          <i class="fa-solid fa-bell bellicon"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Fitur Search di Tengah -->
+      <div class="header-center">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari barang, kategori, atau lokasi..."
+        />
+      </div>
+
+      <button class="button-upload">
+        <a href="upload-barang.html"><i class="fa-solid fa-plus iconplus"></i>Upload</a>
+      </button>
+
+      <h2 class="section-title">Barang Terbaru Disekitar Anda</h2>
+      <div class="katalog-grid" id="katalogContainer">
+        <!-- Item akan dimuat di sini oleh JavaScript -->
+      </div>
+    </main>
+
+    <!-- Popup Pengaturan Radius -->
+    <div class="radius-overlay" id="radiusOverlay" hidden>
+        <div
+            class="radius-popup"
+            id="radiusPopup"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="radiusPopupTitle"
+        >
+            <h2 id="radiusPopupTitle">Atur Jangkauan Radius</h2>
+
+            <p class="radius-current-location">
+                Lokasi: Kediri, Jawa Timur
+            </p>
+
+            <form id="radiusForm">
+                <div class="radius-options">
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="1"
+                        >
+                        <span>1 KM - Jalan kaki / Sangat Dekat</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="2"
+                            checked
+                        >
+                        <span>2 KM - Radius Optimal Kampus</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="3"
+                        >
+                        <span>3 KM - Area Sekitar Kota</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="4"
+                        >
+                        <span>4 KM - Area Sekitar</span>
+                    </label>
+
+                    <label class="radius-option">
+                        <input
+                            type="radio"
+                            name="radius"
+                            value="5"
+                        >
+                        <span>5 KM - Jangkauan Maksimal</span>
+                    </label>
+
+                </div>
+
+                <button type="submit" class="radius-save-btn">
+                    Simpan Pengaturan Radius
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+      <!-- Navigasi Kanan (Beranda, Pencarian, Pesan) -->
+      <nav class="nav-links">
+        <a href="beranda.html" class="active"
+          ><i class="fa-solid fa-house iconhouse"></i
+        ></a>
+        <a href="notifikasi.html"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+        <a href="pesan.html"><i class="fa-solid fa-envelope"></i></a>
+      </nav>
+    </footer>
+
+    <script src="js/beranda.js"></script>
+  </body>
+</html>

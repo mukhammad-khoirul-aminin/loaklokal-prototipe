@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrasi - LoakLokal</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #9bb8cc, #245775);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      color: white;
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+    .back-btn > i {
+      color: white;
+      text-decoration: none;
+      font-size: 40px;
+      margin-right: 15px;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .wrap-registrasi{
+      width: 100%;
+    }
+    .wrap-registrasi > h1 {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .form-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      color: white;
+      margin-left: 15px;
+      margin-bottom: 5px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+
+    /* Area Upload KTP */
+    .upload-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 25px;
+      margin-bottom: 30px;
+    }
+    .upload-box {
+      width: 120px;
+      height: 80px;
+      background: #fff;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden; /* Penting agar gambar preview tidak keluar kotak */
+    }
+    .upload-box input[type="file"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .upload-icon {
+      font-size: 30px;
+      color: #333;
+    }
+    .preview-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none; /* Disembunyikan awalnya */
+      z-index: 1;
+    }
+    
+    .upload-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+    .btn-upload {
+      background: #3d7188;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      pointer-events: none;
+      width: max-content;
+      margin-top: 20px;
+    }
+    .status-text {
+      font-size: 11px;
+      font-weight: 500;
+      min-height: 15px;
+    }
+    .status-error { color: #ffb3b3; } /* Merah muda terang untuk error */
+    .status-success { color: #b3ffb3; } /* Hijau terang untuk sukses */
+
+    .submit-container {
+      text-align: center;
+    }
+    .btn-submit {
+      background: #ffffff;
+      color: #333;
+      border: none;
+      padding: 12px 35px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .btn-submit:hover {
+      background: #f0f0f0;
+    }
+    .line{
+      padding: 1px;
+      width: 100%;
+      background-color: white;
+      margin-bottom: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header-top">
+      <a href="login.html" class="back-btn"><i class="fa-solid fa-circle-arrow-left"></i></a>
+      <div class="wrap-registrasi">
+        <h1>REGISTRASI</h1>
+      </div>
+    </div>
+    <div class="line"></div>
+    
+
+    <form action="login.html" method="get" id="registerForm">
+      <div class="form-group">
+        <label for="reg-email-phone">E-mail/No.HP</label>
+        <input type="text" id="reg-email-phone" name="email_or_phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-fullname">Nama Lengkap</label>
+        <input type="text" id="reg-fullname" name="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" name="password" required>
+      </div>
+
+      <!-- Sektor Upload KTP dengan Preview & Validasi -->
+      <div class="upload-section">
+        <div class="upload-box" title="Klik untuk upload KTP">
+          <img src="assets/images/Upload.png" alt="" width="50%">
+          <input type="file" id="reg-ktp" name="ktp_image" accept="image/jpeg,image/png,image/webp" required>
+        </div>
+        
+        <div class="upload-info">
+          <button type="button" class="btn-upload">Upload KTP</button>
+          <p id="uploadStatus" class="status-text"></p>
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <button type="submit" class="btn-submit" id="btnSubmit">Daftar Akun</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Script untuk Preview dan Deteksi Blur -->
+  <script>
+    const ktpInput = document.getElementById('reg-ktp');
+    const ktpPreview = document.getElementById('ktpPreview');
+    const uploadIcon = document.getElementById('uploadIcon');
+    const uploadStatus = document.getElementById('uploadStatus');
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    ktpInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      uploadStatus.textContent = "Mengecek kualitas gambar...";
+      uploadStatus.className = "status-text";
+      btnSubmit.disabled = true; // Disable tombol daftar saat proses
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          // Cek gambar apakah blur menggunakan Canvas & Laplacian Variance
+          checkBlur(img, function(isBlurry) {
+            if (isBlurry) {
+              // Jika KTP Blur
+              uploadStatus.textContent = "⚠️ KTP terlihat buram/blur. Silakan upload ulang yang lebih jelas!";
+              uploadStatus.className = "status-text status-error";
+              
+              // Reset input dan tampilan
+              ktpInput.value = ""; 
+              ktpPreview.style.display = "none";
+              uploadIcon.style.display = "block";
+              btnSubmit.disabled = true; // Mencegah form di-submit
+            } else {
+              // Jika KTP Jelas
+              uploadStatus.textContent = "✔️ KTP jelas dan diterima.";
+              uploadStatus.className = "status-text status-success";
+              
+              // Tampilkan gambar KTP
+              ktpPreview.src = event.target.result;
+              ktpPreview.style.display = "block";
+              uploadIcon.style.display = "none";
+              btnSubmit.disabled = false; // Bolehkan form di-submit
+            }
+          });
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Fungsi Analisis Ketajaman Gambar (Laplacian Variance)
+    function checkBlur(img, callback) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      
+      // Perkecil ukuran (downscale) untuk mempercepat proses komputasi di browser
+      const scale = Math.min(300 / img.width, 1);
+      const width = Math.floor(img.width * scale);
+      const height = Math.floor(img.height * scale);
+      
+      canvas.width = width;
+      canvas.height = height;
+      ctx.drawImage(img, 0, 0, width, height);
+      
+      const imageData = ctx.getImageData(0, 0, width, height);
+      const pixels = imageData.data;
+      
+      // Ubah gambar ke format Grayscale (Hitam Putih)
+      const grayscale = [];
+      for (let i = 0; i < pixels.length; i += 4) {
+        // Rumus Luminance Grayscale
+        grayscale.push(pixels[i] * 0.299 + pixels[i+1] * 0.587 + pixels[i+2] * 0.114);
+      }
+      
+      // Terapkan Kernel Laplacian untuk mendeteksi tepi
+      let sum = 0, sumSq = 0, count = 0;
+      
+      for (let y = 1; y < height - 1; y++) {
+        for (let x = 1; x < width - 1; x++) {
+          const p = 
+            grayscale[(y - 1) * width + x] + 
+            grayscale[(y + 1) * width + x] + 
+            grayscale[y * width + (x - 1)] + 
+            grayscale[y * width + (x + 1)] - 
+            4 * grayscale[y * width + x];
+              
+          sum += p;
+          sumSq += p * p;
+          count++;
+        }
+      }
+      
+      // Hitung Variansi Laplacian
+      const mean = sum / count;
+      const variance = (sumSq / count) - (mean * mean);
+      
+      // Threshold (Batas nilai blur). 
+      // Semakin KECIL nilai variance, semakin BLUR gambarnya.
+      // Anda dapat mengubah angka 150 ini. (Biasa berkisar antara 100 - 300)
+      const threshold = 150; 
+      const isBlurry = variance < threshold; 
+      
+      callback(isBlurry);
+    }
+  </script>
+</body>
+</html>

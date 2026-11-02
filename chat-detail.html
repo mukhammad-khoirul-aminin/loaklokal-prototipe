@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat dengan Alif - LoakLokal</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/chat-detail.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- Link Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Global Header (Desktop) -->
+    <header class="global-header">
+      <div class="global-header2">
+        <a href="pesan.html" class="back-btn"><i class="fa-solid fa-arrow-left backicon"></i> Kembali</a>
+        <div class="user-profile">
+          <div class="avatar">👤</div>
+          <div>
+            <div class="user-name">Alif (Pemilik Barang)</div>
+            <div class="user-status">Online</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Chat Window (Desktop App Style) -->
+      <div class="chat-window">
+        <!-- Area Obrolan Utama -->
+        <div class="chat-body">
+          <!-- Informasi Produk (Format Horizontal Desktop) -->
+          <div class="product-banner">
+            <div class="product-image">
+              <img
+                src="./assets/images/kipas-maspion.webp"
+                alt="Kipas Angin"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentNode.innerHTML = '📷';
+                "
+              />
+            </div>
+            <div class="product-details">
+              <h3>Kipas Angin Maspion Bekas</h3>
+              <p>
+                Rp. 30.000 <span class="product-distance">(Jarak: 1,2 km)</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Pesan Pembeli (Kanan) -->
+          <div class="msg-row right">
+            <div class="message">
+              Halo kak, barang masih ada? Bisakah COD di pos satpam UNP
+            </div>
+            <div class="msg-time">16:30</div>
+          </div>
+
+          <!-- Pesan Penjual (Kiri) -->
+          <div class="msg-row left">
+            <div class="message">Ada Kak. Jam 16.30 bisa ketemuan di sana</div>
+            <div class="msg-time">16:35</div>
+          </div>
+
+          <!-- Tombol Aksi Pengajuan COD (Kanan) -->
+          <div class="msg-row right">
+            <div class="action-cod">
+              <a href="form-cod.html" class="btn-cod">Ajukan COD lokasi</a>
+              <div class="icon-map">🗺️</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Chat Area -->
+        <div class="chat-footer">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              class="chat-input"
+              placeholder="Ketik pesan Anda di sini..."
+              aria-label="Ketik pesan"
+            />
+          </div>
+          <button class="btn-send" aria-label="Kirim Pesan">➤</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <!-- Navigasi Kanan (Beranda, Pencarian, Pesan) -->
+      <nav class="nav-links">
+        <a href="beranda.html" class="active"
+          ><i class="fa-solid fa-house iconhouse"></i
+        ></a>
+        <a href="notifikasi.html"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+        <a href="pesan.html"><i class="fa-solid fa-envelope"></i></a>
+      </nav>
+    </footer>
+  </body>
+</html>

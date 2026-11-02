@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - LoakLokal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      /* Gradien latar belakang sesuai desain */
+      background: linear-gradient(to bottom, #9bb8cc, #245775);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    /* Bagian Logo dan Judul */
+    .header-brand {
+      margin-bottom: 20px;
+      color: white;
+    }
+    .header-brand img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+    .header-brand h1 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .header-brand p {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    /* Kotak Form Utama */
+    .card {
+      background: rgba(220, 225, 230, 0.85); /* Warna abu-abu transparan */
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 30px 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Tombol Navigasi Tab (Login / Registrasi) */
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .nav-tabs a {
+      text-decoration: none;
+      background: #ffffff;
+      color: #333;
+      padding: 8px 25px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .nav-tabs a.active {
+      background: #f0f0f0;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Gaya Input Form */
+    .form-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      color: #444;
+      margin-left: 15px;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #fff; /* Warna pink muda kemerahan pada input */
+      font-size: 13px;
+      outline: none;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Tombol Aksi */
+    .btn-submit {
+      background: #3d7188; /* Warna teal gelap */
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .btn-submit:hover {
+      background: #2a5264;
+    }
+  </style>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header & Logo -->
+    <div class="header-brand">
+      <!-- Ganti src dengan path logo Anda -->
+      <img src="./assets/images/LOGO.png" alt="Logo LoakLokal">
+      <h1>LOAKLOKAL</h1>
+      <p>Pasar Loak & Hibah Lokal</p>
+    </div>
+
+    <!-- Kotak Form Login -->
+    <div class="card">
+      <div class="nav-tabs">
+        <a href="login.html" class="active">Login</a>
+        <a href="register.html">Registrasi</a>
+      </div>
+
+      <form action="beranda.html" method="get">
+        <div class="form-group">
+          <label for="login-identifier">E-mail/No.HP</label>
+          <input type="text" id="login-identifier" name="identifier" required>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Masuk Akun</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

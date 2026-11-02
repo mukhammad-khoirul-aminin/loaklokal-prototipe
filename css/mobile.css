@@ -1,0 +1,143 @@
+/* =====================================================
+   mobile.css - Tampilan HP untuk semua halaman LoakLokal
+   Layout HP selalu aktif (di laptop tampil dalam bingkai HP di tengah)
+   ===================================================== */
+@media all {
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+  img { max-width: 100%; }
+
+  /* ---------- Header ---------- */
+  header, .global-header {
+    padding: 10px 14px !important;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .logo-circle { width: 34px !important; height: 34px !important; font-size: 9px !important; }
+  .header-left h1, .logo-container h1 { font-size: 16px !important; }
+  .logo { font-size: 1rem !important; }
+  .header-left { gap: 10px !important; }
+  .back-btn { font-size: 0.95rem !important; }
+
+  /* Search bar beranda: turun ke baris sendiri */
+  .header-center { order: 3; flex: 1 1 100%; max-width: 100% !important; margin: 0 !important; }
+
+  /* ---------- Navigasi jadi bar bawah (seperti aplikasi) ---------- */
+  .nav-links {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+    background: #176B87; border-top: 1px solid #176B87;
+    box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+    display: flex; justify-content: space-around; gap: 0 !important;
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  }
+  .nav-links a {
+    flex: 1; text-align: center; font-size: 0.8rem !important;
+    padding: 6px 0 !important; border-bottom: none !important;
+    text-transform: capitalize;
+  }
+  .nav-links a.active { border-bottom: none !important; color: #176B87; font-weight: 700; }
+  /* beri ruang agar konten tidak tertutup nav bawah */
+  body:has(.nav-links) { padding-bottom: 64px; }
+
+  /* ---------- Konten utama ---------- */
+  main { padding: 16px 12px !important; }
+  .form-container { margin: 16px 12px !important; padding: 20px 16px !important; width: auto !important; max-width: 100% !important; }
+
+  /* ---------- Beranda ---------- */
+  .top-action-bar { flex-direction: column; align-items: stretch !important; gap: 12px; margin-bottom: 16px !important; }
+  .top-action-bar h2 { font-size: 18px; }
+  .btn-upload { justify-content: center; }
+  .banner-container { height: auto !important; min-height: 150px; padding: 20px !important; border-radius: 16px !important; margin-bottom: 24px !important; }
+  .banner-content { max-width: 100% !important; }
+  .banner-content h2 { font-size: 20px !important; }
+  .banner-content p { font-size: 13px !important; }
+  h2.section-title { font-size: 18px !important; }
+  .katalog-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .card img { height: 120px !important; }
+  .card-body { padding: 12px !important; }
+  .card-title { font-size: 14px !important; margin-bottom: 6px !important; }
+  .card-price { font-size: 14px !important; margin-bottom: 8px !important; }
+  .card-location { font-size: 11px !important; }
+
+  /* ---------- Detail barang ---------- */
+  .detail-card { flex-direction: column !important; padding: 0 !important; gap: 0 !important; }
+  .detail-image, .detail-image img { width: 100% !important; max-width: 100% !important; }
+  .detail-info { padding: 16px !important; width: 100% !important; }
+  .detail-title { font-size: 1.3rem !important; }
+  .action-buttons { gap: 10px !important; }
+  .btn-action { flex: 1; text-align: center; padding: 12px 10px !important; }
+
+  /* ---------- Daftar pesan ---------- */
+  .chat-card { border-radius: 0 !important; min-height: 0 !important; }
+  .chat-header { padding: 16px !important; flex-direction: column; align-items: stretch !important; gap: 12px; }
+  .chat-header h1 { font-size: 1.2rem !important; }
+  .search-chat { width: 100% !important; }
+  .chat-item { padding: 14px 16px !important; }
+  .chat-avatar { width: 46px !important; height: 46px !important; font-size: 1.1rem !important; }
+  .chat-info { margin-left: 12px !important; }
+  .chat-name { font-size: 1rem !important; }
+  .chat-preview { font-size: 0.88rem !important; }
+
+  /* ---------- Ruang chat (penuh layar) ---------- */
+  main:has(.chat-window) { padding: 0 !important; height: calc(100vh - 118px) !important; height: calc(100dvh - 118px) !important; }
+  .chat-window { border-radius: 0 !important; max-width: 100% !important; box-shadow: none !important; }
+  .chat-window .chat-header { flex-direction: row !important; align-items: center !important; padding: 12px 14px !important; gap: 12px !important; }
+  .user-profile { padding-left: 12px !important; gap: 10px !important; }
+  .avatar { width: 38px !important; height: 38px !important; }
+  .chat-body { padding: 16px 12px !important; gap: 12px !important; }
+  .product-banner { width: 100% !important; padding: 10px 14px !important; gap: 12px !important; }
+  .product-image { width: 60px !important; height: 60px !important; }
+  .product-details h3, .product-info h3 { font-size: 0.95rem !important; }
+  .message, .message-bubble { max-width: 82% !important; padding: 10px 14px !important; font-size: 0.92rem !important; }
+  .chat-footer { padding: 10px 12px !important; gap: 10px !important; }
+  .chat-input { padding: 11px 18px !important; flex: 1 1 auto; min-width: 0; width: auto !important; }
+  .chat-footer > * { min-width: 0; }
+  .btn-send { width: 44px !important; height: 44px !important; flex-shrink: 0; }
+  .btn-cod { padding: 10px 16px !important; font-size: 0.88rem !important; }
+  .cod-card { width: 100% !important; max-width: 100% !important; }
+
+  /* ---------- Form COD ---------- */
+  .desktop-card, .approval-card { padding: 20px 16px !important; border-radius: 12px !important; }
+  .card-header h1 { font-size: 1.3rem !important; }
+  .form-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .map-link img { height: 160px !important; }
+
+  /* ---------- Tiket & persetujuan ---------- */
+  .ticket-card, .ticket-box { flex-direction: column !important; gap: 20px; padding: 20px 16px !important; align-items: stretch !important; }
+  .qr-section, .ticket-qr { border-left: none !important; padding-left: 0 !important; border-top: 2px dashed #e5e5e5; padding-top: 16px; text-align: center; }
+  .desktop-card h2, .approval-card h2 { font-size: 1.3rem !important; margin-bottom: 20px !important; }
+  .icon-success { width: 64px !important; height: 64px !important; font-size: 2rem !important; }
+  .action-buttons, .action-form { flex-direction: column !important; gap: 12px !important; }
+  .action-buttons a, .action-form button { width: 100%; }
+  .btn { width: 100%; min-width: 0 !important; }
+  .btn-submit { font-size: 1rem !important; }
+
+  /* ---------- Upload barang ---------- */
+  .radio-group { flex-direction: column !important; gap: 8px !important; }
+  .upload-area { padding: 24px 12px !important; }
+
+  /* ---------- Login & Register ---------- */
+  .container { max-width: 100% !important; }
+
+  /* Input: cegah zoom otomatis di iPhone */
+  input, select, textarea { font-size: 16px !important; }
+}
+
+/* =====================================================
+   Bingkai HP: di layar lebar, halaman tampil selebar HP
+   ===================================================== */
+html { background: #cfd6dc; }
+body {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto !important;
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0,0,0,.25);
+  position: relative;
+}
+/* bar navigasi bawah ikut selebar bingkai */
+.nav-links {
+  left: 50% !important; right: auto !important;
+  transform: translateX(-50%);
+  width: 100%; max-width: 430px;
+}

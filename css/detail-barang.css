@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f4f7;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background-color: #176B87;
+    color: white;
+    padding: 20px 50px;
+    width: 100%;
+    height: 130px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wrap-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-top: 25px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mainwrap-header{
+    position: absolute;
+    bottom: 20px;
+    width: 94%;
+}
+
+.wrap-header{
+    display: flex;
+    gap: 20px;
+}
+
+.logoweb-detailbarang{
+    width: 70px;
+}
+
+.iconarrowleft::before{
+    background-color: white;
+    color: #176B87;
+    border-radius: 100%;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Konten Utama */
+main {
+    padding: 40px 50px;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.detail-card {
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-image {
+    width: 100%;
+    height: 400px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-info {
+    padding: 30px;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.detail-price-loc {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-tag {
+    font-weight: 700;
+    color: #e65100;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+
+.detail-cod {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Profil Penjual */
+.seller-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.seller-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-radius: 50%;
+    position: relative;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.seller-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Tombol Aksi */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-action {
+    flex: 1;
+    background-color: #1b6979;
+    /* Warna teal sesuai desain tombol */
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 25px;
+    /* Bentuk kapsul/pil */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-action:hover {
+    background-color: #134e5a;
+}
+
+.not-found {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+    color: #888;
+}
+

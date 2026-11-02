@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daftar Barang Terdekat - LoakLokal</title>
+
+    <!-- Font Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img src="assets/images/LOGO.png" width="50px" />
+                <h1>LOAKLOKAL</h1>
+            </div>
+
+            <div class="header-right">
+                <button type="button" class="radius-location" id="radiusLocationBtn" aria-haspopup="dialog" aria-expanded="false">
+                    ( Kediri, 2km )
+                </button>
+                <i class="fa-solid fa-bell bellicon"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="filter-page">
+        <!-- Kolom Pencarian -->
+        <section class="search-section">
+            <input
+                type="text"
+                id="searchName"
+                class="search-name"
+                placeholder="Cari barang..."
+                aria-label="Cari nama barang"
+                autocomplete="off"
+            >
+        </section>
+
+        <!-- Filter Radius -->
+        <section class="radius-section">
+            <span class="section-label">Radius</span>
+
+            <div class="radius-options">
+
+                <label class="radius-option">
+                    <input
+                        type="radio"
+                        name="radius"
+                        value="1"
+                    >
+                    <span>1 km</span>
+                </label>
+
+                <label class="radius-option">
+                    <input
+                        type="radio"
+                        name="radius"
+                        value="2"
+                        checked
+                    >
+                    <span>2 km</span>
+                </label>
+
+                <label class="radius-option">
+                    <input
+                        type="radio"
+                        name="radius"
+                        value="3"
+                    >
+                    <span>3 km</span>
+                </label>
+
+            </div>
+        </section>
+
+        <!-- Filter Kategori -->
+        <section class="category-section">
+
+            <h2 class="category-title">Kategori</h2>
+
+            <div class="category-options">
+
+                <label class="category-option">
+                    <input
+                        type="radio"
+                        name="jenis"
+                        value="hibah"
+                    >
+                    <span>Hibah Gratis</span>
+                </label>
+
+                <label class="category-option">
+                    <input
+                        type="radio"
+                        name="jenis"
+                        value="harga_bawah"
+                    >
+                    <span>Jual &lt; Rp. 50.000</span>
+                </label>
+
+            </div>
+        </section>
+
+        <!-- Daftar Barang Terdekat -->
+        <section class="product-section">
+
+            <h2 class="product-heading">
+                DAFTAR BARANG TERDEKAT
+            </h2>
+
+            <div
+                class="product-list"
+                id="productList"
+                aria-live="polite"
+            ></div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Navigasi Kanan (Beranda, Pencarian, Pesan) -->
+        <nav class="nav-links">
+            <a href="beranda.html"
+            ><i class="fa-solid fa-house iconhouse"></i
+            ></a>
+            <a href="notifikasi.html" class="active"
+            ><i class="fa-solid fa-magnifying-glass iconglass"></i
+            ></a>
+            <a href="pesan.html"><i class="fa-solid fa-envelope"></i></a>
+        </nav>
+    </footer>
+
+    <script src="js/filter.js" defer></script>
+</body>
+</html>
